@@ -13,7 +13,7 @@ export function Navigation() {
             </div>
             <div>
               <h1 className="text-xl font-bold text-foreground">Marine Data Platform</h1>
-              <p className="text-sm text-muted-foreground">Smart India Hackathon 2024</p>
+              <p className="text-sm text-muted-foreground">Marine Biodiversity Data Platform</p>
             </div>
           </div>
           

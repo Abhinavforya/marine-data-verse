@@ -1,13 +1,14 @@
 import { Navigation } from "@/components/marine/Navigation";
 import { HeroSection } from "@/components/marine/HeroSection";
 import { Dashboard } from "@/components/marine/Dashboard";
+import { IndianOceanMap } from "@/components/marine/IndianOceanMap";
 import { FeatureShowcase } from "@/components/marine/FeatureShowcase";
 import { Footer } from "@/components/marine/Footer";
 import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Marine Data Platform | Smart India Hackathon 2024";
+    document.title = "Marine Data Platform";
   }, []);
 
   return (
@@ -15,8 +16,9 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
-        <Dashboard />
-        <FeatureShowcase />
+  <Dashboard />
+  <IndianOceanMap />
+  <FeatureShowcase />
       </main>
       <Footer />
     </div>

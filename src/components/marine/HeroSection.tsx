@@ -21,7 +21,7 @@ export function HeroSection() {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
           <Badge className="mb-6 bg-accent/20 text-accent border-accent/30 backdrop-blur-sm">
-            Smart India Hackathon 2024 • CMLRE Solution
+            Marine Biodiversity Data Platform
           </Badge>
           
           <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">

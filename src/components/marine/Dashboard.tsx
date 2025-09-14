@@ -16,8 +16,14 @@ import {
 } from "lucide-react";
 import dataVisualization from "@/assets/data-visualization.jpg";
 import researchInfrastructure from "@/assets/research-infrastructure.jpg";
+import { useMarineData } from '@/hooks/useMarineData';
 
 export function Dashboard() {
+  const { data, loading, error } = useMarineData();
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
     <section className="py-20 px-6 bg-background">
       <div className="container mx-auto">
@@ -227,6 +233,28 @@ export function Dashboard() {
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </div>
+
+        {/* Marine Data Display */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Marine Data</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {data.map(item => (
+              <Card key={item.id} className="shadow-surface">
+                <CardContent>
+                  <div className="text-sm text-muted-foreground mb-2">
+                    {item.observed_at}
+                  </div>
+                  <div className="text-lg font-semibold text-foreground">
+                    {item.name} ({item.type})
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {item.location}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

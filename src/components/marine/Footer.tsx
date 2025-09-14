@@ -25,7 +25,7 @@ export function Footer() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-foreground">Marine Data Platform</h3>
-                <p className="text-sm text-muted-foreground">Smart India Hackathon 2024</p>
+                <p className="text-sm text-muted-foreground">Marine Biodiversity Data Platform</p>
               </div>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
@@ -33,14 +33,7 @@ export function Footer() {
               and collaborative tools for ocean biodiversity conservation.
             </p>
             <div className="flex flex-wrap gap-2 mb-6">
-              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
-                <Award className="w-3 h-3 mr-1" />
-                SIH 2024
-              </Badge>
-              <Badge variant="outline" className="bg-secondary/10 text-secondary border-secondary/20">
-                <Database className="w-3 h-3 mr-1" />
-                CMLRE
-              </Badge>
+              {/* Removed SIH 2024 and CMLRE badges */}
               <Badge variant="outline" className="bg-accent/10 text-accent border-accent/20">
                 <Users className="w-3 h-3 mr-1" />
                 Open Source
@@ -111,7 +104,7 @@ export function Footer() {
         
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm text-muted-foreground">
-            © 2024 Marine Data Platform. Built for Smart India Hackathon with ❤️ for ocean conservation.
+            © 2024 Marine Data Platform. Built with ❤️ for ocean conservation.
           </div>
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">

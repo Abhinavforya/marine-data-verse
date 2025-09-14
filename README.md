@@ -1,73 +1,173 @@
-# Welcome to your Lovable project
+# 🌊 Marine Data Verse
 
-## Project info
+[![CI/CD Pipeline](https://github.com/abhi-nv/marine-data-verse/actions/workflows/deploy.yml/badge.svg)](https://github.com/abhi-nv/marine-data-verse/actions/workflows/deploy.yml)
+[![Security Scan](https://github.com/abhi-nv/marine-data-verse/actions/workflows/security.yml/badge.svg)](https://github.com/abhi-nv/marine-data-verse/actions/workflows/security.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**URL**: https://lovable.dev/projects/5efb7bf4-fb11-4035-825c-9526f15dabc6
+An AI-Driven Unified Data Platform for Oceanographic, Fisheries, and Molecular Biodiversity Insights. Built for CMLRE's Smart India Hackathon 2025 challenge to address critical data integration challenges in marine science.
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- **🔄 Unified Data Ingestion**: Multi-format support (CSV, JSON, DwC-A, OBIS-ENV)
+- **🧠 AI-Powered Analysis**: CNN species identification, eDNA sequence matching
+- **📊 Real-time Visualization**: Interactive maps, charts, environmental monitoring
+- **📐 Standards Compliance**: Darwin Core and OBIS-ENV standardization
+- **☁️ Cloud-Native**: Ready for deployment on AWS, Vercel, Netlify, and Docker
 
-**Use Lovable**
+## 🛠️ Technology Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5efb7bf4-fb11-4035-825c-9526f15dabc6) and start prompting.
+- **Frontend**: React 18, TypeScript, Vite
+- **UI Framework**: shadcn/ui, Tailwind CSS
+- **State Management**: TanStack Query
+- **Database**: Supabase (PostgreSQL)
+- **Charts**: Recharts
+- **Deployment**: Docker, GitHub Actions, Multi-cloud ready
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📋 Quick Start
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js 18+ 
+- npm or yarn
+- Git
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Local Development
 
-Follow these steps:
+```bash
+# Clone the repository
+git clone https://github.com/abhi-nv/marine-data-verse.git
+cd marine-data-verse
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Copy environment variables
+cp .env.example .env.local
+# Edit .env.local with your configuration
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🚀 Deployment Options
 
-**Use GitHub Codespaces**
+This project supports multiple deployment platforms. Choose the one that best fits your needs:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 🐳 Docker Deployment
 
-## What technologies are used for this project?
+```bash
+# Build and run with Docker
+docker build -t marine-data-verse .
+docker run -p 80:80 marine-data-verse
 
-This project is built with:
+# Or use Docker Compose
+docker-compose up -d
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### ⚡ Vercel (Recommended for React apps)
 
-## How can I deploy this project?
+1. **One-click deployment:**
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/abhi-nv/marine-data-verse)
 
-Simply open [Lovable](https://lovable.dev/projects/5efb7bf4-fb11-4035-825c-9526f15dabc6) and click on Share -> Publish.
+2. **Manual deployment:**
+   ```bash
+   npm install -g vercel
+   vercel --prod
+   ```
 
-## Can I connect a custom domain to my Lovable project?
+### 🌐 Netlify
 
-Yes, you can!
+1. **One-click deployment:**
+   [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/abhi-nv/marine-data-verse)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+2. **Manual deployment:**
+   ```bash
+   npm install -g netlify-cli
+   npm run build
+   netlify deploy --prod --dir=dist
+   ```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### ☁️ AWS (S3 + CloudFront)
+
+```bash
+# Prerequisites: AWS CLI configured
+chmod +x aws/deploy.sh
+./aws/deploy.sh your-domain.com us-east-1
+```
+
+### 🖥️ Self-hosted
+
+Use the deployment scripts for your platform:
+
+**Linux/macOS:**
+```bash
+chmod +x deploy.sh
+./deploy.sh production docker
+```
+
+**Windows:**
+```powershell
+.\deploy.ps1 -Environment "production" -Platform "docker"
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env.local` file based on `.env.example`:
+
+```env
+# Supabase Configuration
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# API Configuration  
+VITE_API_URL=http://localhost:8000
+
+# Feature Flags
+VITE_ENABLE_AI_FEATURES=true
+VITE_ENABLE_REAL_TIME=true
+```
+
+### Build Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run build:dev    # Build for development
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
+```
+
+## 🔒 Security
+
+- GitHub Actions security scanning
+- Docker image vulnerability scanning with Trivy
+- Dependency scanning with Snyk
+- Security headers implemented in Nginx/CDN configs
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- 📚 [Documentation](docs/)
+- 🐛 [Report Issues](https://github.com/abhi-nv/marine-data-verse/issues)
+- 💬 [Discussions](https://github.com/abhi-nv/marine-data-verse/discussions)
+
+## 🙏 Acknowledgments
+
+- Built for CMLRE Smart India Hackathon 2025
+- Powered by [Lovable](https://lovable.dev) for rapid development
+- UI components from [shadcn/ui](https://ui.shadcn.com)
