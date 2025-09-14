@@ -2,41 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Marine Data Platform Design System - Ocean-inspired theme
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Ocean-inspired background system */
+    --background: 220 25% 95%;
+    --foreground: 215 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Marine card system */
+    --card: 215 30% 98%;
+    --card-foreground: 215 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover system */
+    --popover: 215 30% 98%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* Deep ocean primary colors */
+    --primary: 210 85% 35%;
     --primary-foreground: 210 40% 98%;
+    --primary-light: 210 85% 55%;
+    --primary-dark: 210 85% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Teal secondary system */
+    --secondary: 185 75% 45%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-light: 185 75% 65%;
+    --secondary-dark: 185 75% 35%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted ocean tones */
+    --muted: 210 25% 90%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent aqua system */
+    --accent: 175 85% 50%;
+    --accent-foreground: 210 40% 98%;
+    --accent-light: 175 85% 70%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Alert/warning coral */
+    --destructive: 15 85% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Success sea green */
+    --success: 155 85% 45%;
+    --success-foreground: 210 40% 98%;
 
-    --radius: 0.5rem;
+    /* Warning amber */
+    --warning: 45 85% 60%;
+    --warning-foreground: 215 25% 15%;
+
+    /* Borders and inputs */
+    --border: 210 30% 85%;
+    --input: 210 30% 90%;
+    --ring: 210 85% 35%;
+
+    /* Marine gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-deep: linear-gradient(180deg, hsl(var(--primary-dark)), hsl(var(--primary)));
+    --gradient-surface: linear-gradient(135deg, hsl(var(--accent-light)), hsl(var(--accent)));
+    --gradient-twilight: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(210 85% 15%));
+
+    /* Shadows with ocean glow */
+    --shadow-ocean: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-deep: 0 25px 50px -15px hsl(var(--primary-dark) / 0.4);
+    --shadow-surface: 0 5px 15px -3px hsl(var(--accent) / 0.2);
+
+    /* Border radius system */
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -53,36 +87,52 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark theme ocean colors */
+    --background: 215 30% 8%;
+    --foreground: 210 40% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 215 30% 10%;
+    --card-foreground: 210 40% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 30% 10%;
+    --popover-foreground: 210 40% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 210 85% 55%;
+    --primary-foreground: 215 30% 8%;
+    --primary-light: 210 85% 70%;
+    --primary-dark: 210 85% 40%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 185 75% 50%;
+    --secondary-foreground: 215 30% 8%;
+    --secondary-light: 185 75% 70%;
+    --secondary-dark: 185 75% 40%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 25% 15%;
+    --muted-foreground: 215 15% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 175 85% 55%;
+    --accent-foreground: 215 30% 8%;
+    --accent-light: 175 85% 75%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 15 85% 65%;
+    --destructive-foreground: 210 40% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --success: 155 85% 50%;
+    --success-foreground: 210 40% 95%;
+
+    --warning: 45 85% 65%;
+    --warning-foreground: 215 25% 15%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 210 85% 55%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -96,10 +146,32 @@ All colors MUST be HSL.
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border transition-colors;
   }
 
   body {
     @apply bg-background text-foreground;
+    transition: var(--transition-smooth);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
   }
 }
